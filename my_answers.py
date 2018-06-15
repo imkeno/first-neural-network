@@ -92,7 +92,7 @@ class NeuralNetwork(object):
         # TODO: Backpropagated error terms - Replace these values with your calculations.
         output_error_term = error
         # TODO: Calculate the hidden layer's contribution to the error
-        hidden_error = np.dot((self.weights_hidden_to_output + delta_weights_h_o),output_error_term) 
+        hidden_error = np.dot((self.weights_hidden_to_output),output_error_term) 
         hidden_error_term = hidden_error * hidden_outputs * (1 - hidden_outputs)
         # Weight step (input to hidden)
         delta_weights_i_h += hidden_error_term * X[:,None]
@@ -101,6 +101,7 @@ class NeuralNetwork(object):
         return delta_weights_i_h, delta_weights_h_o
 
     def update_weights(self, delta_weights_i_h, delta_weights_h_o, n_records):
+
         ''' Update weights on gradient descent step
          
             Arguments
@@ -110,7 +111,7 @@ class NeuralNetwork(object):
             n_records: number of records
 
         '''
-        self.weights_hidden_to_output += self.lr * delta_weights_h_o / n_records # update hidden-to-output weights with gradient descent step
+        self.weights_hidden_to_output += self.lr * delta_weights_h_o /n_records # update hidden-to-output weights with gradient descent step
 
         self.weights_input_to_hidden += self.lr * delta_weights_i_h / n_records # update input-to-hidden weights with gradient descent step
 
@@ -136,7 +137,7 @@ class NeuralNetwork(object):
 #########################################################
 # Set your hyperparameters here
 ##########################################################
-iterations = 300
-learning_rate = 0.35
-hidden_nodes = 2
+iterations = 5600
+learning_rate = 0.5
+hidden_nodes = 20
 output_nodes = 1

@@ -133,7 +133,7 @@ val_features, val_targets = features[-60*24:], targets[-60*24:]
 # 4. Implement the forward pass in the `run` method.
 #   
 
-# In[35]:
+# In[228]:
 
 
 #############
@@ -143,7 +143,7 @@ val_features, val_targets = features[-60*24:], targets[-60*24:]
 from my_answers import NeuralNetwork
 
 
-# In[36]:
+# In[229]:
 
 
 def MSE(y, Y):
@@ -154,7 +154,7 @@ def MSE(y, Y):
 # 
 # Run these unit tests to check the correctness of your network implementation. This will help you be sure your network was implemented correctly befor you starting trying to train it. These tests must all be successful to pass the project.
 
-# In[105]:
+# In[246]:
 
 
 import unittest
@@ -235,7 +235,7 @@ unittest.TextTestRunner().run(suite)
 # 
 # Try a few different numbers and see how it affects the performance. You can look at the losses dictionary for a metric of the network performance. If the number of hidden units is too low, then the model won't have enough space to learn and if it is too high there are too many options for the direction that the learning can take. The trick here is to find the right balance in number of hidden units you choose.  You'll generally find that the best number of hidden nodes to use ends up being between the number of input and output nodes.
 
-# In[108]:
+# In[249]:
 
 
 import sys
@@ -268,7 +268,7 @@ for ii in range(iterations):
     losses['validation'].append(val_loss)
 
 
-# In[109]:
+# In[252]:
 
 
 plt.plot(losses['train'], label='Training loss')
@@ -281,7 +281,7 @@ _ = plt.ylim()
 # 
 # Here, use the test data to view how well your network is modeling the data. If something is completely wrong here, make sure each step in your network is implemented correctly.
 
-# In[110]:
+# In[251]:
 
 
 fig, ax = plt.subplots(figsize=(8,4))
